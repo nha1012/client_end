@@ -1,35 +1,44 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-
-import { categoriesApi } from '../pages/api';
+import React from 'react';
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-  const fetch = async () => {
-    try {
-      const _categories = await categoriesApi.getCategories();
-      setCategories(_categories.data);
-    } catch (error) {}
-  };
-  useEffect(() => {
-    fetch();
-  }, []);
-  console.log('render');
   return (
-    <div className="py-6">
-      <div className="flex px-6 justify-between items-center">
-        <h2 className="text-base mb-2">Categories</h2>
-        <span className="text-xs mb-2 text-[#3669C9]">See All</span>
-      </div>
-      <ul className="grid list-none grid-cols-5 px-2">
-        {categories.map((category: any) => (
-          <li key={category.id} className="flex items-center flex-col">
-            <div className="w-full h-[48px] relative">
-              <Image src="/icons/Button Icon.svg" alt="" layout="fill" objectFit="contain" />
-            </div>
-            <span className="text-xs mt-1">{category?.name ?? ''}</span>
-          </li>
-        ))}
+    <div className="py-4">
+      <ul className="grid list-none grid-cols-5">
+        <li className="flex items-center flex-col">
+          <div className="w-full h-[48px] relative">
+            <Image src="/icons/Button Icon-2.svg" alt="" layout="fill" objectFit="contain" />
+          </div>
+          <span className="text-xs mt-1">Fashion</span>
+        </li>
+
+        <li className="flex items-center flex-col">
+          <div className="w-full h-[48px] relative">
+            <Image src="/icons/Button Icon-3.svg" alt="" layout="fill" objectFit="contain" />
+          </div>
+          <span className="text-xs mt-1">Gadget</span>
+        </li>
+
+        <li className="flex items-center flex-col">
+          <div className="w-full h-[48px] relative">
+            <Image src="/icons/Button Icon-4.svg" alt="" layout="fill" objectFit="contain" />
+          </div>
+          <span className="text-xs mt-1">Bear</span>
+        </li>
+
+        <li className="flex items-center flex-col">
+          <div className="w-full h-[48px] relative">
+            <Image src="/icons/Button Icon-4.svg" alt="" layout="fill" objectFit="contain" />
+          </div>
+          <span className="text-xs mt-1">Bear</span>
+        </li>
+
+        <li className="flex items-center flex-col">
+          <div className="w-full h-[48px] relative">
+            <Image src="/icons/Button Icon-4.svg" alt="" layout="fill" objectFit="contain" />
+          </div>
+          <span className="text-xs mt-1">Bear</span>
+        </li>
       </ul>
     </div>
   );

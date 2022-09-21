@@ -6,3 +6,26 @@ html,
 body {
   font-family: 'DM Sans', sans-serif;
 }
+.menu-container {
+  display: none;
+  animation-name: menuShow;
+  animation-duration: 0.2s;
+  transform-origin: top;
+}
+.menu-container.active {
+  display: block;
+}
+@keyframes menuShow {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(100%);
+  }
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+  color: #ff6683;
+}

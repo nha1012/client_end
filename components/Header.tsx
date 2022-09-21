@@ -13,13 +13,30 @@ const Header = () => {
           <Image onClick={toogleMenu} src="/icons/close.svg" alt="menu" width="25" height="25" />
         )}
       </div>
-      <div className="header__logo text-[#3669C9] text-lg font-bold">Mega Mall</div>
-      <div className="header__left gap-5 flex">
-        <Image src="/icons/bell.svg" alt="menu" width="20" height="20" />
-        <Image src="/icons/shopping-cart.svg" alt="menu" width="20" height="20" />
+      <div className="header__logo text-[#ff6683] text-lg font-bold">Mega</div>
+      <div className="header__left flex">
+        <div className="input-button relative">
+          <input
+            placeholder="Nhập sản phẩm"
+            className="pl-5 h-[45px] flex items-center rounded-[10px] w-full bg-[#FAFAFA]"
+          />
+          <div className="absolute right-4 top-[30%]">
+            <Image src="/icons/search.svg" alt="search" width="20" height="20" />
+          </div>
+        </div>
       </div>
-      {showMenu && (
-        <div className="menu-container w-[100vw] p-6 h-[100vh] absolute top-[65px] bg-[white] z-10 flex justify-center left-0">
+      {showMenu ? (
+        <div className="menu-container active w-[100vw] p-6 absolute top-[65px] bg-[white] z-10 flex justify-center left-0">
+          <ul className="flex gap-4 flex-col">
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+        </div>
+      ) : (
+        <div className="menu-container w-[100vw] p-6 absolute top-[65px] bg-[white] z-10 flex justify-center left-0">
           <ul className="flex gap-4 flex-col">
             <li>Home</li>
             <li>Home</li>

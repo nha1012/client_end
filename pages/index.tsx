@@ -1,12 +1,14 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import Banner from '../components/Banner';
 import Categories from '../components/Categories';
 import Header from '../components/Header';
-import Navigation from '../components/Navigation';
 import Products from '../components/Products';
-import Search from '../components/Search';
-const Home: NextPage = () => {
+import SubCategories from '../components/SubCategories';
+import { makeSerializable } from '../lib/util';
+import prisma from '../lib/prisma';
+const Home: NextPage = (props) => {
+  console.log(props);
   return (
     <div>
       <Head>
@@ -17,22 +19,20 @@ const Home: NextPage = () => {
 
       <main>
         <Header />
-        <Search />
         <Banner />
         <Categories />
+        <SubCategories />
         <Products />
-        <Products />
-        <Products />
-        <Products />
-        <Products />
-        <Products />
-        <Products />
-        <Navigation />
       </main>
 
       <footer></footer>
     </div>
   );
 };
-
+export const getServerSideProps: GetServerSideProps = async () => {
+  const user = await prisma.user.findMany({});
+  return {
+    props: { user: makeSerializable(user) },
+  };
+};
 export default Home;
