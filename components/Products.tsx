@@ -1,6 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-
 const Products = () => {
   return (
     <div className="p-4">
@@ -9,40 +9,17 @@ const Products = () => {
       </div>
       <ul className="grid list-none grid-cols-2 gap-2">
         <li className="flex flex-col rounded-lg shadow-card bg-[white]">
-          <div className="w-full relative h-[150px]">
-            <Image src="/imgs/Minion-nieng-rang-7.jpeg" alt="Image Alt" layout="fill" objectFit="fill" />
-          </div>
-          <div className="product__desc flex mt-4 flex-col p-2 items-center">
-            <h3 className="text-[#333] text-center">Gấu bông Minion niềng răng</h3>
-            <span className="font-bold text-[#ff6683] mt-1">148.000₫</span>
-          </div>
-        </li>
-        <li className="flex flex-col rounded-lg shadow-card bg-[white]">
-          <div className="w-full relative h-[150px]">
-            <Image src="/imgs/Minion-nieng-rang-7.jpeg" alt="Image Alt" layout="fill" objectFit="fill" />
-          </div>
-          <div className="product__desc flex mt-4 flex-col p-2 items-center">
-            <h3 className="text-[#333] text-center">Gấu bông Minion niềng răng</h3>
-            <span className="font-bold text-[#ff6683] mt-1">148.000₫</span>
-          </div>
-        </li>
-        <li className="flex flex-col rounded-lg shadow-card bg-[white]">
-          <div className="w-full relative h-[150px]">
-            <Image src="/imgs/Minion-nieng-rang-7.jpeg" alt="Image Alt" layout="fill" objectFit="fill" />
-          </div>
-          <div className="product__desc flex mt-4 flex-col p-2 items-center">
-            <h3 className="text-[#333] text-center">Gấu bông Minion niềng răng</h3>
-            <span className="font-bold text-[#ff6683] mt-1">148.000₫</span>
-          </div>
-        </li>
-        <li className="flex flex-col rounded-lg shadow-card bg-[white]">
-          <div className="w-full relative h-[150px]">
-            <Image src="/imgs/Minion-nieng-rang-7.jpeg" alt="Image Alt" layout="fill" objectFit="fill" />
-          </div>
-          <div className="product__desc flex mt-4 flex-col p-2 items-center">
-            <h3 className="text-[#333] text-center">Gấu bông Minion niềng răng</h3>
-            <span className="font-bold text-[#ff6683] mt-1">148.000₫</span>
-          </div>
+          <Link href={{ pathname: `/san-pham/asetasdfs`, query: { id: '2' } }} className="p-4">
+            <a>
+              <div className="w-full relative h-[150px]">
+                <Image src="/imgs/Minion-nieng-rang-7.jpeg" alt="Image Alt" layout="fill" objectFit="fill" />
+              </div>
+              <div className="product__desc flex mt-4 flex-col p-2 items-center">
+                <h3 className="text-[#333] text-center">Gấu bông Minion niềng răng</h3>
+                <span className="font-bold text-[#ff6683] mt-1">148.000₫</span>
+              </div>
+            </a>
+          </Link>
         </li>
       </ul>
     </div>
