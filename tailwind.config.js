@@ -7,6 +7,12 @@ module.exports = {
         header: '0px 1px 3px rgba(0, 0, 0, 0.05)',
         card: '0 0.3125rem 0.625rem rgb(0 0 0 / 20%)',
       },
+      fontSize: {
+        10: '10px',
+      },
+      borderColor: {
+        pink: '#ff6683',
+      },
     },
   },
   plugins: [],

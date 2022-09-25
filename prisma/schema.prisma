@@ -14,10 +14,13 @@ datasource db {
 model Product {
   id            String       @default(cuid()) @id
   name          String?
+  slug          String?
   price         Float
+  promotionPrice Float
+  category      Category  @relation(fields: [categoryId], references: [id])
   categoryId    String
-  category      Category @relation(fields: [categoryId], references: [id])
   productImages ProductImage[]
+  productOptions ProductOption[]
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
 }
@@ -26,16 +29,26 @@ model Category{
   id            String       @default(cuid()) @id
   url           String?
   name          String
-  productId     String
-  product       Product   @relation(fields: [productId], references: [id])
+  products      Product[]
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
 }
 model ProductImage {
-  id            String       @default(cuid()) @id
+  id            String    @default(cuid()) @id
   url           String?
   productId     String
   product       Product   @relation(fields: [productId], references: [id])
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
 }
+model ProductOption{
+  id            String    @default(cuid()) @id
+  size          String
+  price         Float
+  promotionPrice Float
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id])
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+}
+
