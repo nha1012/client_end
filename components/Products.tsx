@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { FC, useMemo, useState } from 'react';
 import { IProduct } from '../types/global';
 import { formatMoney } from '../helpers/money';
+import { ProductOption } from '@prisma/client';
 interface Props {
   products: IProduct[];
 }
@@ -35,7 +36,7 @@ const ProductItem: FC<PropsItem> = ({ product }) => {
             <span className="font-bold text-[#ff6683]">{formatMoney(price)}₫</span>
             <ul className="flex gap-1 mt-1">
               {product.productOptions &&
-                product.productOptions.map((option) => {
+                product.productOptions.map((option: ProductOption) => {
                   if (option.id === size)
                     return (
                       <li
