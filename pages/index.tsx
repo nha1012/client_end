@@ -5,12 +5,14 @@ import SubCategories from '../components/SubCategories';
 import prisma from '../lib/prisma';
 import { makeSerializable } from '../lib/util';
 import { IProduct } from '../types/global';
+import { NextSeo } from 'next-seo';
 interface Props {
   products: IProduct[];
 }
 const Home: NextPage<Props> = ({ products }) => {
   return (
     <Fragment>
+      <NextSeo title="Lala store" description="Gấu Bông lalashop | Shop mua bán Gấu Bông Đẹp, Giá Rẻ ở đà nẵng" />
       <SubCategories />
       <Products products={products} />
     </Fragment>

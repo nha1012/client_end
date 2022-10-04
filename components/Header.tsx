@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const Header = () => {
@@ -13,7 +14,11 @@ const Header = () => {
           <Image onClick={toogleMenu} src="/icons/close.svg" alt="menu" width="25" height="25" />
         )}
       </div>
-      <div className="header__logo text-[#ff6683] text-lg font-bold">Mega</div>
+      <div className="header__logo text-[#ff6683] text-lg font-bold">
+        <Link href="/">
+          <a>Mega</a>
+        </Link>
+      </div>
       <div className="header__left flex">
         <div className="input-button relative">
           <input
